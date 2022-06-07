@@ -1,11 +1,23 @@
+export const Init = () => {
+    return async dispatch => {
+    const access =JSON.parse(sessionStorage.getItem('access'))
+    if (access !== null) {
+        dispatch({
+          type: 'LOGIN',
+          payload: access,
+        })
+      }
+    }
+  }
 export const LoginAction = (token,refresh) => {
     return async dispatch => {
-    //   if (token && refresh) {
+    if (token && refresh) {
+    sessionStorage.setItem('access',JSON.stringify(token))
       dispatch({
         type: 'LOGIN',
         payload: token,
       })
-    // }
+    }
     }
   }
 export const Logout = () => {

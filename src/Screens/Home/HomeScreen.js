@@ -9,12 +9,9 @@ import {
 import Error from '../ErrorPage/Error';
 export default function HomeScreen() {
   return (
-    <Router>
-    <Routes>
-        <Route exact path="/" element={<Main/>} />  
-        <Route path="*" element={<Error/>} />  
+    <Routes>  
+        <Route exact path="/home" element={<Main/>}/> 
+        {/* <Route path="*" element={<Error/>} />   */}
     </Routes>
-</Router>
-
   )
 }

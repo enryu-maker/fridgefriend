@@ -9,18 +9,17 @@ import {
     Route,
   } from "react-router-dom";
 import Error from '../ErrorPage/Error';
+import ProtectedRoute from './Protected'
 
 export default function Root() {
   return (
-    <Router>
         <Routes>
-            <Route exact path="/" element={<Home/>} />  
-            <Route path="/Login" element={<Login/>} />  
-            <Route path="/Signup" element={<Signup/>} />  
-            {/* <Route path="/Home" element={<Main/>} />   */}
+            <Route path="/" element={<Home/>}/>
+            <Route path="/login" element={<Login/>} />  
+            <Route path="/signup" element={<Signup/>} />  
+            <Route path="/home" element={<ProtectedRoute Component={<Main/>}/> } />  
             {/* <Route path="*" element={<Error/>} />   */}
         </Routes>
-    </Router>
   )
 }
 

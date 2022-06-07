@@ -4,7 +4,7 @@ import Main from '../../assets/main.png'
 import { COLORS, FONTS, SIZES } from '../../Components/Theme'
 import { useDispatch } from 'react-redux'
 import { LoginAction } from '../../Store/actions'
-import { Navigate } from 'react-router-dom'
+import { Link, Navigate,useLocation } from 'react-router-dom'
 
 export default function Login() {
     const[email,setEmail] = React.useState('')
@@ -13,9 +13,7 @@ export default function Login() {
 
     function login(){
         dispatch(LoginAction(email,password))
-        return(
-            <Navigate to='Home'/>
-        )
+        window.location.replace('/home')
     }
   return (
     <div>
