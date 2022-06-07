@@ -1,3 +1,5 @@
+import { Navigate } from "react-router-dom"
+
 export const Init = () => {
     return async dispatch => {
     const access =JSON.parse(sessionStorage.getItem('access'))
@@ -12,7 +14,6 @@ export const Init = () => {
 export const LoginAction = (token,refresh) => {
     return async dispatch => {
     if (token && refresh) {
-    // sessionStorage.setItem('access',JSON.stringify(token))
       dispatch({
         type: 'LOGIN',
         payload: token,

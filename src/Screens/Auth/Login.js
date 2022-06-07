@@ -13,8 +13,7 @@ export default function Login() {
 
      function login(){
          dispatch(LoginAction(email,password))
-        return <Navigate replace='/home'/>
-        
+        // return <Navigate replace='/home'/>
     }
   return (
     <div>

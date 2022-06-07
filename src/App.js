@@ -15,7 +15,6 @@ import Error from './Screens/ErrorPage/Error';
 import { Init } from './Store/actions';
 export default function App() {
   const access = useSelector(state=>state.Reducers.access)
-  console.log(access)
   return (
     <>
     <Router>
