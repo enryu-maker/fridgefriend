@@ -1,11 +1,11 @@
-export const Login = (token,refresh) => {
+export const LoginAction = (token,refresh) => {
     return async dispatch => {
-      if (token && refresh) {
+    //   if (token && refresh) {
       dispatch({
         type: 'LOGIN',
         payload: token,
       })
-    }
+    // }
     }
   }
 export const Logout = () => {

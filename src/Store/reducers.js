@@ -1,5 +1,5 @@
 const initialState = {
-    access:"12345678"
+    access:null
 }
 
 export default (state = initialState, action) => {

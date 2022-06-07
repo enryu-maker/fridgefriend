@@ -2,8 +2,21 @@ import React from 'react'
 import Header from '../../Components/Header'
 import Main from '../../assets/main.png'
 import { COLORS, FONTS, SIZES } from '../../Components/Theme'
+import { useDispatch } from 'react-redux'
+import { LoginAction } from '../../Store/actions'
+import { Navigate } from 'react-router-dom'
 
 export default function Login() {
+    const[email,setEmail] = React.useState('')
+    const[password,setPassword] = React.useState('')
+    const dispatch = useDispatch()
+
+    function login(){
+        dispatch(LoginAction(email,password))
+        return(
+            <Navigate to='Home'/>
+        )
+    }
   return (
     <div>
         <Header active={"Login"}/>
@@ -36,7 +49,9 @@ export default function Login() {
             width:230,
             margin:15,
             outline: "none",
-        }} type={"email"} placeholder={"Enter your email"}/><br></br>
+        }} type={"email"} placeholder={"Enter your email"} onChange={(event)=>{
+            setEmail(event.target.value)
+        }}/><br></br>
         <input style={{
             borderWidth:0,
             borderBottomWidth:1,
@@ -44,9 +59,12 @@ export default function Login() {
             width:230,
             margin:15,
             outline: "none",
-        }} type={"password"} placeholder={"Enter your Password"}/><br></br>
+        }} type={"password"} placeholder={"Enter your Password"} onChange={(event)=>{
+            setPassword(event.target.value)
+        }}/><br></br>
         <input type={"button"} value={"Login"} onClick={()=>{
-            alert("hi")
+           login()
+           alert("hi")
         }} style={{
             height:35,
             width:120,

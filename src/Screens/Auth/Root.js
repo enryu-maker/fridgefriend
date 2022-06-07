@@ -2,6 +2,7 @@ import React from 'react'
 import Home from './Home'
 import Login from './Login'
 import Signup from './Signup'
+import Main from '../Home/Main'
 import {
     BrowserRouter as Router,
     Routes,
@@ -16,7 +17,8 @@ export default function Root() {
             <Route exact path="/" element={<Home/>} />  
             <Route path="/Login" element={<Login/>} />  
             <Route path="/Signup" element={<Signup/>} />  
-            <Route path="*" element={<Error/>} />  
+            {/* <Route path="/Home" element={<Main/>} />   */}
+            {/* <Route path="*" element={<Error/>} />   */}
         </Routes>
     </Router>
   )

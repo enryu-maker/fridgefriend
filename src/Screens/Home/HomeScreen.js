@@ -4,6 +4,7 @@ import {
     BrowserRouter as Router,
     Routes,
     Route,
+    Navigate,
   } from "react-router-dom";
 import Error from '../ErrorPage/Error';
 export default function HomeScreen() {
