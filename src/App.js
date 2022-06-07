@@ -1,38 +1,34 @@
 import React from 'react'
 
-import HomeScreen from './Screens/Home/HomeScreen';
-import Root from './Screens/Auth/Root';
-import { useDispatch, useSelector } from 'react-redux';
-import { Init } from './Store/actions';
+import Login from './Screens/Auth/Login';
+import Signup from './Screens/Auth/Signup';
 import Main from './Screens/Home/Main';
+import Home from './Screens/Auth/Home';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Navigate,
 } from "react-router-dom";
+import ProtectedRoute from './Screens/Auth/Protected';
+import Error from './Screens/ErrorPage/Error';
+import { Init } from './Store/actions';
 export default function App() {
-  const dispatch = useDispatch()
-  // React.useEffect(()=>{
-  //   dispatch(Init())
-  // },[])
   const access = useSelector(state=>state.Reducers.access)
-
   console.log(access)
   return (
     <>
     <Router>
-    {
-      access?<HomeScreen/>:<Root/>
-    }
+    <Routes>
+            <Route path="/" element={<Home/>}/>
+            <Route path="/login" element={<Login/>} />  
+            <Route path="/signup" element={<Signup/>} />  
+            <Route path="/home" element={<ProtectedRoute Component={Main} access={access}/>} />  
+            <Route path="*" element={<Error/>} />  
+        </Routes>
     </Router>
     </>
   )
 }
 
-function Something() {
-  return (
-    <div>App</div>
-  )
-}
 

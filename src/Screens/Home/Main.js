@@ -18,7 +18,7 @@ export default function Main() {
             alignSelf:"center",
             width:"100%",
         }}>
-        {/* <image 
+        <img 
         onClick={()=>{
             setisOpen(!isOpen)
         }} 
@@ -35,8 +35,11 @@ export default function Main() {
             margin:20
 
         }
-    }/> */}
-    {/* <Content/> */}
+    }/>
+    {
+        isOpen?<Content/>:null
+    }
+    
     
     </div>
     </div>

@@ -4,16 +4,17 @@ import Main from '../../assets/main.png'
 import { COLORS, FONTS, SIZES } from '../../Components/Theme'
 import { useDispatch } from 'react-redux'
 import { LoginAction } from '../../Store/actions'
-import { Link, Navigate,useLocation } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 
 export default function Login() {
     const[email,setEmail] = React.useState('')
     const[password,setPassword] = React.useState('')
     const dispatch = useDispatch()
 
-    function login(){
-        dispatch(LoginAction(email,password))
-        window.location.replace('/home')
+     function login(){
+         dispatch(LoginAction(email,password))
+        return <Navigate replace='/home'/>
+        
     }
   return (
     <div>
@@ -22,7 +23,7 @@ export default function Login() {
             display:"inline-flex",
             justifyContent:"space-evenly",
             alignSelf:"center",
-        width:"100%",
+            width:"100%",
         }}>
             <div style={{
                 alignSelf:"center",
@@ -40,30 +41,41 @@ export default function Login() {
                 textAlign:"center"
 
                 }}>Login To Continue!</p>
-        <input style={{
+        <input 
+        style={{
             borderWidth:0,
             borderBottomWidth:1,
             height:30,
             width:230,
             margin:15,
             outline: "none",
-        }} type={"email"} placeholder={"Enter your email"} onChange={(event)=>{
+        }} 
+        type={"email"} 
+        placeholder={"Enter your email"} 
+        onChange={(event)=>{
             setEmail(event.target.value)
         }}/><br></br>
-        <input style={{
+        <input 
+        style={{
             borderWidth:0,
             borderBottomWidth:1,
             height:30,
             width:230,
             margin:15,
             outline: "none",
-        }} type={"password"} placeholder={"Enter your Password"} onChange={(event)=>{
+        }} 
+        type={"password"} 
+        placeholder={"Enter your Password"} 
+        onChange={(event)=>{
             setPassword(event.target.value)
         }}/><br></br>
-        <input type={"button"} value={"Login"} onClick={()=>{
+        <input 
+        type={"button"} 
+        value={"Login"} 
+        onClick={()=>{
            login()
-           alert("hi")
-        }} style={{
+        }} 
+        style={{
             height:35,
             width:120,
             backgroundColor:COLORS.Primary2,
