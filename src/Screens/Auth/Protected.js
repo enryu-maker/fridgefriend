@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react'
-import { Navigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const ProtectedRoute = ({ Component, access}) => {
+  const navigate = useNavigate()
   console.log(access)
       return( 
         <>
-        {access === null? <Navigate to='/login'/> : <Component /> }
+        {access === null? navigate('/login') : <Component/> }
         </>
       )
 }

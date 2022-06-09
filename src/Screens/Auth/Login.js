@@ -4,16 +4,17 @@ import Main from '../../assets/main.png'
 import { COLORS, FONTS, SIZES } from '../../Components/Theme'
 import { useDispatch } from 'react-redux'
 import { LoginAction } from '../../Store/actions'
-import { Navigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export default function Login() {
     const[email,setEmail] = React.useState('')
     const[password,setPassword] = React.useState('')
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
      function login(){
-         dispatch(LoginAction(email,password))
-        // return <Navigate replace='/home'/>
+        dispatch(LoginAction(email,password))
+        navigate('/home')
     }
   return (
     <div>
