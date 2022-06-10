@@ -34,7 +34,7 @@ export default function Header({
         display:"inline-flex",
         justifyContent:"center",
     }}>
-        <Link to={"/"} style={{
+        <Link to={"/home"} style={{
             color:COLORS.black,
             textDecorationLine:"none"
         }}><p style={active==="Home"?{
@@ -49,7 +49,7 @@ export default function Header({
         }}>
             Home
         </p></Link>
-        <Link to={"/login"} style={{
+        <Link to={"/"} style={{
             color:COLORS.black,
             textDecorationLine:"none"
         }}><p onClick={()=>{
@@ -61,19 +61,6 @@ export default function Header({
         }}>
             Logout
         </p></Link>
-        {/* <Link to={"/signup"} style={{
-            color:COLORS.black,
-            textDecorationLine:"none"
-        }}><p style={active==="Signup"?{
-            padding:18,
-            ...FONTS.h3,
-            color:COLORS.black
-        }:{
-            padding:18,
-            ...FONTS.body3
-        }}>
-            Signup
-        </p></Link> */}
         </div>
     </div>
   )

@@ -1,10 +1,11 @@
 export const COLORS={
     Primary:"#9CF6F630",
     // Primary2:"#9CF6F6",
-    Primary2:"#15E0E0",
-
+    // Primary2:"#15E0E0",
+    Primary2:'rgb(108,182,207)',
     black:"black",
-    red:"#cc0000"
+    red:"#cc0000",
+    white:"#ffffff"
 }
 export const SIZES = {
     // global sizes
