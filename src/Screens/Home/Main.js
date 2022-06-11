@@ -6,11 +6,8 @@ import Content from '../../Components/Content'
 import { COLORS, FONTS, SIZES } from '../../Components/Theme'
 import Popup from 'reactjs-popup'
 import AddItem from './AddItem'
-import { Grid, MutatingDots } from 'react-loader-spinner'
 export default function Main() {
     const [isOpen,setisOpen] = React.useState(false)
-    const [add,setAdd] = React.useState(false)
-
   return (
     <div>
         <Header active={"Home"}/>
@@ -25,14 +22,10 @@ export default function Main() {
         }}>
             Click on Fridge to open
         </p>
-        {/* <MutatingDots color={COLORS.red} secondaryColor={COLORS.Primary2} ariaLabel="loading-indicator" /> */}
         <Popup overlayStyle={{
             backdropFilter:'blur(1px) grayscale(5%)'
-            // backgroundColor:'#C0C0C040'
         }}  modal trigger={<div style={{
             height:50,
-            // alignSelf:"center",
-            // justifyContent:"center",
             backgroundColor:COLORS.Primary2,
             borderRadius:SIZES.radius,
             paddingInline:8,

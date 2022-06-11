@@ -1,5 +1,5 @@
 export const COLORS={
-    Primary:"#9CF6F630",
+    Primary:"#9CF6F650",
     // Primary2:"#9CF6F6",
     // Primary2:"#15E0E0",
     Primary2:'rgb(108,182,207)',
@@ -7,6 +7,7 @@ export const COLORS={
     red:"#cc0000",
     white:"#ffffff"
 }
+
 export const SIZES = {
     // global sizes
     base: 8,
@@ -26,6 +27,8 @@ export const SIZES = {
     body3: 16,
     body4: 14,
     body5: 12,
+
+    
 };
 export const FONTS = {
     largeTitle: { fontFamily:"", fontSize: SIZES.largeTitle },
