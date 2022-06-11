@@ -13,8 +13,9 @@ export default function Signup() {
     width:"100%",
     }}>
         <div style={{
+            display:"flex",
             alignSelf:"center",
-            alignItems:"center"
+            flexDirection:"column"
         }}>
             <p style={{
                 ...FONTS.h2,
@@ -64,7 +65,9 @@ export default function Signup() {
             borderRadius:SIZES.radius,
             alignSelf:"center",
             margin:15,
-            borderWidth:0
+            borderWidth:0,
+            boxShadow: `1px 3px 1px #9E9E9E`,
+            
         }}/>
     
     </div>

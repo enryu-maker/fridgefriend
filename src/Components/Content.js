@@ -15,7 +15,9 @@ export default function Content() {
         alignItems:"center",
         flexDirection:"column",
         overflowY:"scroll",
-        whiteSpace:"nowrap"
+        whiteSpace:"nowrap",
+        boxShadow: `1px 3px 1px #9E9E9E`,
+
     }}>
       <p style={{
         ...FONTS.h2,

@@ -20,6 +20,7 @@ export default function Card({
         borderRadius:SIZES.radius,
         flexDirection:"row",
         margin:8,
+        boxShadow: `2px 3px 3px #9E9E9E`,
         ...containerStyle
       }}
       onClick={onClick}

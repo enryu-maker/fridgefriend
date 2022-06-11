@@ -26,8 +26,10 @@ export default function Login() {
             width:"100%",
         }}>
             <div style={{
+                display:"flex",
                 alignSelf:"center",
-                alignItems:"center",
+                flexDirection:"column"
+                // alignItems:"center",
                 
             }}>
                 <p style={{
@@ -83,6 +85,8 @@ export default function Login() {
             borderRadius:SIZES.radius,
             alignSelf:"center",
             margin:15,
+            boxShadow: `1px 3px 1px #9E9E9E`,
+
         }}/>
         </div>
         <img style={{

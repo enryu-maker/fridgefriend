@@ -4,7 +4,9 @@ import open from '../../assets/open.png'
 import close from '../../assets/close.png'
 import Content from '../../Components/Content'
 import { COLORS, FONTS, SIZES } from '../../Components/Theme'
-
+import Popup from 'reactjs-popup'
+import AddItem from './AddItem'
+import { Grid, MutatingDots } from 'react-loader-spinner'
 export default function Main() {
     const [isOpen,setisOpen] = React.useState(false)
     const [add,setAdd] = React.useState(false)
@@ -23,14 +25,20 @@ export default function Main() {
         }}>
             Click on Fridge to open
         </p>
-        <div style={{
+        {/* <MutatingDots color={COLORS.red} secondaryColor={COLORS.Primary2} ariaLabel="loading-indicator" /> */}
+        <Popup overlayStyle={{
+            backdropFilter:'blur(1px) grayscale(5%)'
+            // backgroundColor:'#C0C0C040'
+        }}  modal trigger={<div style={{
             height:50,
             // alignSelf:"center",
             // justifyContent:"center",
             backgroundColor:COLORS.Primary2,
             borderRadius:SIZES.radius,
             paddingInline:8,
-            margin:10
+            margin:10,
+        boxShadow: `1px 3px 1px #9E9E9E`,
+
         }}
         onClick={()=>{
             alert(true)
@@ -44,7 +52,10 @@ export default function Main() {
         }}>
             Add Inventory
         </p>
-        </div>
+        </div>}>
+        {close => <AddItem close={close} />}
+      </Popup>
+        
         </div>
         <div style={{
             display:"inline-flex",

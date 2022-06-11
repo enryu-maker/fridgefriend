@@ -11,8 +11,7 @@ export default function Home() {
             display:"inline-flex",
             justifyContent:"space-evenly",
             alignSelf:"center",
-        width:"100%",
-
+            width:"100%",
         }}>
             <img style={{
                 height:550,
