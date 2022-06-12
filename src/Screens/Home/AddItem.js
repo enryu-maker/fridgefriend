@@ -1,13 +1,52 @@
 import React from 'react'
 import { COLORS, SIZES, FONTS } from '../../Components/Theme'
-
+import axiosIns from '../../Helper/Helper'
+import { useDispatch, useSelector } from 'react-redux'
+import axios from 'axios'
+import { GetInventory } from '../../Store/actions'
 export default function AddItem({
     close
 }) {
     const [ProductName,setProductName]  = React.useState('')
     const [qty,setQty]  = React.useState(0)
     const [exp,setExp]  = React.useState(null)
-
+    const [loading, setLoading] = React.useState(false);
+    const token = useSelector(state=>state.Reducers.access)
+    const dispatch= useDispatch()
+    async function add() {
+        setLoading(true);
+        await axios
+          .post(
+            'http://127.0.0.1:8000/api/inventory/',
+            {
+              name: ProductName,
+              qty: qty,
+              expiry: exp,
+            },
+            {
+              headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${token}`
+              },
+            },
+          )
+          .then(response => {
+            if (response.status === 201) {
+              alert("product added")
+              dispatch(GetInventory(token))
+              setLoading(false)
+            } else {
+              alert("error occured")
+              setLoading(false);
+            }
+          })
+          .catch(error => {
+            if (error.response) {
+              alert("error occured")
+              setLoading(false);    
+            }
+          });
+    }
 
   return (
     <div style={{
@@ -87,7 +126,7 @@ export default function AddItem({
 
         }}
         onClick={()=>{
-            alert(true)
+            add()
         }}
         >
         <p style={{

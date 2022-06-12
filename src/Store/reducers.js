@@ -1,5 +1,6 @@
 const initialState = {
-    access:null
+    access:null,
+    inv:[]
 }
 
 export default (state = initialState, action) => {
@@ -14,6 +15,11 @@ export default (state = initialState, action) => {
                 ...state,
                 access: action.payload,
               };
+              case 'GET':
+                return {
+                    ...state,
+                    inv: action.payload,
+                  };
         default:
             return state;
     }

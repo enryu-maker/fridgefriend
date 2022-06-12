@@ -1,8 +1,10 @@
 import React from 'react'
 import Card from './Card'
 import { COLORS, FONTS, SIZES } from './Theme'
-export default function Content() {
-  const a =[1,2,3]
+export default function Content({
+  product
+}) {
+  
   return (
     <div style={{
       display:"flex",
@@ -38,8 +40,8 @@ export default function Content() {
         paddingBottom:20
     }}>
       {
-        a.map(item=>(
-          <Card Quantity={'Quantity'} Product_Name={'Product Name'} Expiry_Date={'Expiry Date'} 
+        product?.map(item=>(
+          <Card Quantity={item.qty} Product_Name={item.name} Expiry_Date={item.expiry} isExpired={item.is_expired}
           />
         ))
       }

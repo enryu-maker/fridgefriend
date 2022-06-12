@@ -5,17 +5,54 @@ import { COLORS, FONTS, SIZES } from '../../Components/Theme'
 import { useDispatch } from 'react-redux'
 import { LoginAction } from '../../Store/actions'
 import { useNavigate } from 'react-router-dom'
-
+import axios from 'axios'
 export default function Login() {
     const[email,setEmail] = React.useState('')
     const[password,setPassword] = React.useState('')
+    const [loading, setLoading] = React.useState(false);
+    const [EmailError, setEmailError] = React.useState('');
     const dispatch = useDispatch()
     const navigate = useNavigate()
-
-     function login(){
-        dispatch(LoginAction(email,password))
-        navigate('/home')
-    }
+    function isEnableSignIn() {
+        return email != '' && password != '';
+      }
+    async function login() {
+        if (isEnableSignIn()) {
+          setLoading(true);
+          await axios.post('http://127.0.0.1:8000/api/login/',
+              {
+                username: email,
+                password: password,
+              },
+              {
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+              },
+            )
+            .then(response => {
+              if (response.status == 200) {
+                alert("loggedin")
+                  dispatch(LoginAction(response.data.access,response.data.access))
+                  navigate("/home")
+                  setLoading(false)            
+              } else {
+                alert('User Not Registered');
+                setLoading(false);
+              }
+            })
+            .catch(error => {
+              if (error.response) {
+                console.log(error)
+                alert('Invalid Email & Password');
+                setLoading(false);
+              }
+            });
+        } else {
+            alert('Invalid Input');
+          setLoading(false);
+        }
+      }
   return (
     <div>
         <Header active={"Login"}/>
@@ -52,8 +89,8 @@ export default function Login() {
             margin:15,
             outline: "none",
         }} 
-        type={"email"} 
-        placeholder={"Enter your email"} 
+        type={"text"} 
+        placeholder={"Enter your username"} 
         onChange={(event)=>{
             setEmail(event.target.value)
         }}/><br></br>

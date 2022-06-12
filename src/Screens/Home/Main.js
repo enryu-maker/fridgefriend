@@ -6,8 +6,17 @@ import Content from '../../Components/Content'
 import { COLORS, FONTS, SIZES } from '../../Components/Theme'
 import Popup from 'reactjs-popup'
 import AddItem from './AddItem'
+import { useDispatch, useSelector } from 'react-redux'
+import { GetInventory } from '../../Store/actions'
+import axios from 'axios'
 export default function Main() {
-    const [isOpen,setisOpen] = React.useState(false)
+    const [isOpen,setisOpen] = React.useState(false)    
+    const dispatch =useDispatch()
+    const token = useSelector(state=>state.Reducers.access)
+    React.useEffect(()=>{
+        dispatch(GetInventory(token))
+    },[])
+    const Product = useSelector(state=>state.Reducers.inv)
   return (
     <div>
         <Header active={"Home"}/>
@@ -75,7 +84,7 @@ export default function Main() {
         }
     }/>
     {
-        isOpen?<Content/>:null
+        isOpen?<Content product={Product}/>:null
     }
     
     
